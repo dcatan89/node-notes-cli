@@ -19,4 +19,10 @@ if (action === 'read') {
 }`, 'utf8', err => {
     if (err) throw err;
   });
+} else if (action === 'delete') {
+  delete json.notes[note];
+  fs.writeFile('data.json', `${JSON.stringify(json, null, 2)
+    }`, 'utf8', err => {
+      if (err) throw err;
+    });
 }
